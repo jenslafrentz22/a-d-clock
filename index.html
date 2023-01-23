@@ -2,27 +2,29 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A/D Clock</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analog-Digital-Clock</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="clock">
-        <div class="clock__seconds"></div>
-        <div class="clock__minutes"></div>
-        <div class="clock__hours"></div>
-        <div class="clock__circle"></div>
+
+    <div class="analog-clock">
+        <div class="a-clock-hour"></div>
+        <div class="a-clock-minutes"></div>
+        <div class="a-clock-seconds"></div>
+        <div class="bigpoint"></div>
     </div>
-    <div class="digi-clock">
-        <span class="digi-clock__hours"></span>
-        <span class="digi-clock__dots">:</span>
-        <span class="digi-clock__minutes"></span>
-        <span class="digi-clock__dots">:</span>
-        <span class="digi-clock__seconds"></span>
+    <div class="digital-clock">
+        <div class="d-clock-hour"></div>
+        <div class="points"> : </div>
+        <div class="d-clock-minutes"></div>
+        <div class="points"> : </div>
+        <div class="d-clock-seconds"></div>
     </div>
+
     <script src="script.js"></script>
 </body>
 

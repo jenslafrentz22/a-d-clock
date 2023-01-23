@@ -1,36 +1,38 @@
-function updateTime() {
-  const d = new Date();
-  const hours = d.getHours();
-  const minutes = d.getMinutes();
-  const seconds = d.getSeconds();
+const aHour = document.querySelector(".a-clock-hour");
+const aMin = document.querySelector(".a-clock-minutes");
+const aSec = document.querySelector(".a-clock-seconds");
 
-  // digi clock
-  document.querySelector(".digi-clock__hours").innerText =
-    formatNumberString(hours);
-  document.querySelector(".digi-clock__minutes").innerText =
-    formatNumberString(minutes);
-  document.querySelector(".digi-clock__seconds").innerText =
-    formatNumberString(seconds);
+const dHour = document.querySelector(".d-clock-hour");
+const dMin = document.querySelector(".d-clock-minutes");
+const dSec = document.querySelector(".d-clock-seconds");
+const dCpoints = document.querySelectorAll(".points");
 
-  // classic clock
-  const hoursEl = document.querySelector(".clock__hours");
-  hoursEl.style.setProperty("--hours", hours * 30 + "deg");
+// Time Update:
+function time() {
+  const date = new Date();
+  const h = date.getHours();
+  const m = date.getMinutes();
+  const s = date.getSeconds();
 
-  const minutesEl = document.querySelector(".clock__minutes");
-  minutesEl.style.setProperty("--minutes", minutes * 6 + "deg");
+  // ... analog Clock
+  aHour.style.setProperty("--hour", h * 30 + "deg");
+  aMin.style.setProperty("--minutes", m * 6 + "deg");
+  aSec.style.setProperty("--seconds", s * 6 + "deg");
 
-  const secondsEl = document.querySelector(".clock__seconds");
-  secondsEl.style.setProperty("--seconds", seconds * 6 + "deg");
+  // ... digital Clock
+  function setDigitalTime(a) {
+    let result = "0" + a.toString();
+    return result.slice(-2);
+  }
 
-  document
-    .querySelectorAll(".digi-clock__dots")
-    .forEach((e) => e.classList.toggle("digi-clock__dots--hidden"));
+  dHour.innerText = setDigitalTime(h);
+  dMin.innerText = setDigitalTime(m);
+  dSec.innerText = setDigitalTime(s);
+
+  for (let i = 0; i < dCpoints.length; i++) {
+    dCpoints[i].classList.toggle("points-hidden");
+  }
 }
 
-function formatNumberString(n) {
-  let s = "0" + n.toString();
-  return s.slice(-2);
-}
-
-updateTime();
-setInterval(updateTime, 1000);
+time();
+setInterval(time, 1000);
